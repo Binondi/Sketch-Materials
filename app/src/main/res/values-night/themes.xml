@@ -1,0 +1,16 @@
+<resources>
+
+    <style name="Base.Theme.SketchMaterial" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="fontFamily">@font/main_font</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/bg_top</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorControlHighlight">@color/colorControlHighlight</item>
+        <item name="colorControlNormal">@color/colorControlNormal</item>
+    </style>
+
+    <style name="App.bottomNav" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">@color/colorControlHighlight</item>
+
+    </style>
+</resources>

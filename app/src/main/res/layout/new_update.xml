@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="15dp"
+    android:layout_height="match_parent">
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        app:lottie_fileName="update.json"
+        app:lottie_autoPlay="true"
+        android:paddingEnd="6dp"
+        app:lottie_loop="true"/>
+
+    <TextView
+        android:id="@+id/shortDesc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="New Update Available!"
+        android:textSize="20sp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:id="@+id/message"
+        android:text="Download new version to get more features and smoother experiance."
+        android:gravity="center"
+        android:layout_marginLeft="35dp"
+        android:layout_marginRight="35dp"/>
+
+    <ProgressBar
+        android:layout_width="match_parent"
+        android:id="@+id/progressBar"
+        android:visibility="gone"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_height="wrap_content"/>
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="Update Now"
+        android:textColor="@color/black"
+        app:cornerRadius="10dp"
+        android:id="@+id/button"
+        android:layout_margin="15dp"/>
+</LinearLayout>

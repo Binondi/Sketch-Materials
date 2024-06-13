@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "151447812988",
+    "firebase_url": "https://sketch-material-2cf17-default-rtdb.firebaseio.com",
+    "project_id": "sketch-material-2cf17",
+    "storage_bucket": "sketch-material-2cf17.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:151447812988:android:08c5212ee74a7aa85182f9",
+        "android_client_info": {
+          "package_name": "devs.org.sketch.material"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "151447812988-ugkmor1gl1sh90kj8rudg8npm1suq7q4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAbpbxxYaXmnhNp9IP6PUM_eB6BqKbMx7k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "151447812988-ugkmor1gl1sh90kj8rudg8npm1suq7q4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
