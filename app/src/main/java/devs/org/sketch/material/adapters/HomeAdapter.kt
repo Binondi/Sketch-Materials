@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import devs.org.sketch.material.activities.CodeViewerActivity
+import devs.org.sketch.material.activities.viewerActivity.CodeViewerActivity
 import devs.org.sketch.material.dataModel.JavaCodes
 import devs.org.sketch.material.databinding.CodeItemsBinding
 
@@ -32,7 +32,7 @@ class HomeAdapter(var context : Context): ListAdapter<JavaCodes, HomeAdapter.Vie
         holder.binding.apply {
             title.text = data.title
             bg.setOnClickListener {
-                    val intent = Intent(context,CodeViewerActivity::class.java)
+                    val intent = Intent(context, CodeViewerActivity::class.java)
                     intent.putExtra("title",data.title)
                     intent.putExtra("code",data.code)
                     intent.putExtra("date",data.date)

@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
-import devs.org.sketch.material.activities.BlockDownloaderActivity
+import devs.org.sketch.material.activities.downloaderActivity.BlockDownloaderActivity
 import devs.org.sketch.material.dataModel.Blocks
 import devs.org.sketch.material.databinding.BlockItemsBinding
 

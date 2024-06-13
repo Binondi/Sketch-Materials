@@ -1,57 +1,54 @@
-package devs.org.sketch.material.activities
+package devs.org.sketch.material.activities.downloaderActivity
 
 import android.annotation.SuppressLint
-import android.content.ClipData
-import android.content.ClipboardManager
-import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.browser.customtabs.CustomTabsIntent
 import devs.org.sketch.material.R
-import devs.org.sketch.material.databinding.ActivityCodeViewerBinding
+import devs.org.sketch.material.databinding.ActivityBlockDownloaderBinding
 
-class CodeViewerActivity : AppCompatActivity() {
+class BlockDownloaderActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityCodeViewerBinding
+    private lateinit var binding : ActivityBlockDownloaderBinding
+
     private var titleText = ""
-    private var codeText = ""
+    private var downloadUrl = ""
     private var dateText = ""
     private var descriptionText = ""
 
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityCodeViewerBinding.inflate(layoutInflater)
+        binding = ActivityBlockDownloaderBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         titleText = intent.getStringExtra("title").toString()
-        codeText = intent.getStringExtra("code").toString().replace("ENTER","\n")
+        downloadUrl = intent.getStringExtra("downloadLink").toString()
         dateText = intent.getStringExtra("date").toString()
         descriptionText = intent.getStringExtra("description").toString()
+
+
         binding.apply {
             toolbar.title = titleText
-            code.text = codeText
+            description.text = descriptionText.replace("ENTER","\n")
             date.text = "Date Added: $dateText"
-            codeDescription.text = descriptionText
-            copy.setOnClickListener {
-                copyCode(codeText)
-            }
-            share.setOnClickListener {
-                shareCode(codeText)
+            download.setOnClickListener {
+                openNewChromeTab(downloadUrl)
             }
 
             toolbar.setOnMenuItemClickListener(Toolbar.OnMenuItemClickListener {
                 when(it.itemId){
                     R.id.help ->{
 
-                        help("I have a issue with this code : $titleText")
+                        help("I have a issue with this block : $titleText")
 
                         return@OnMenuItemClickListener true
                     }
                     R.id.report ->{
-                        help("I want to report this code : $titleText")
+                        help("I want to report this block : $titleText")
                         return@OnMenuItemClickListener true
                     }
                     else ->{
@@ -59,10 +56,12 @@ class CodeViewerActivity : AppCompatActivity() {
                     }
                 }
             })
+
         }
 
-
     }
+
+
 
     private fun help(subject:String) {
 
@@ -77,27 +76,10 @@ class CodeViewerActivity : AppCompatActivity() {
         startActivity(intent)
 
     }
-    private fun shareCode(text: String) {
-        // Create an intent to share the text
-        val shareIntent: Intent = Intent().apply {
-            action = Intent.ACTION_SEND
-            putExtra(Intent.EXTRA_TEXT, text)
-            type = "text/plain"
-        }
 
-        val chooser = Intent.createChooser(shareIntent, "Share this code to")
-        startActivity(chooser)
+    private fun openNewChromeTab( url: String) {
+        val builder = CustomTabsIntent.Builder()
+        val customTabsIntent = builder.build()
+        customTabsIntent.launchUrl(this, Uri.parse(url))
     }
-
-    private fun copyCode(text: String) {
-
-        val clipboard = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
-
-        val clip = ClipData.newPlainText("label", text)
-        clipboard.setPrimaryClip(clip)
-        Toast.makeText(this, "Text copied to clipboard", Toast.LENGTH_SHORT).show()
-
-    }
-
-
 }
