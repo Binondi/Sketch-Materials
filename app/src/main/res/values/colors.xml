@@ -14,4 +14,5 @@
     <color name="code_color">#026C2C</color>
     <color name="local_lib_color">#FFD5B2</color>
     <color name="more_bg">#FFFFFF</color>
+    <color name="gray">#4D586471</color>
 </resources>

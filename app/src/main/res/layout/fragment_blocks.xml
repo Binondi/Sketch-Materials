@@ -7,584 +7,693 @@
     tools:context=".fragments.BlocksFragment">
 
     <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:layout_marginEnd="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/_6sdp"
+        android:background="@drawable/circuler_search_bg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/search"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:padding="@dimen/_7sdp"
+            android:src="@drawable/ic_search" />
+
+        <EditText
+            android:id="@+id/edtSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:imeOptions="actionSearch"
+            android:singleLine="true"
+            android:background="@color/transparent"
+            android:gravity="center_vertical"
+            android:hint="Enter name" />
+
+        <ImageView
+            android:id="@+id/cut"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:padding="@dimen/_5sdp"
+            android:visibility="gone"
+            android:src="@drawable/cut" />
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/noItem"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         android:gravity="center"
         android:visibility="gone"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
         <com.airbnb.lottie.LottieAnimationView
             android:layout_width="200dp"
             android:layout_height="200dp"
-            app:lottie_fileName="no_item.json"
             app:lottie_autoPlay="true"
-            app:lottie_loop="true"/>
+            app:lottie_fileName="no_item.json"
+            app:lottie_loop="true" />
 
     </LinearLayout>
 
     <com.facebook.shimmer.ShimmerFrameLayout
-        android:layout_width="match_parent"
         android:id="@+id/loading"
-        android:layout_height="match_parent">
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/_10sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingTop="@dimen/_4sdp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingTop="@dimen/_4sdp">
+
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                app:cardCornerRadius="@dimen/_10sdp"
-                app:cardElevation="@dimen/_10sdp"
+                android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_4sdp"
+                app:cardCornerRadius="@dimen/_10sdp"
 
-                android:layout_height="wrap_content">
+                app:cardElevation="@dimen/_10sdp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    >
+                    android:orientation="horizontal">
+
                     <ImageView
                         android:layout_width="@dimen/_30sdp"
                         android:layout_height="@dimen/_30sdp"
-                        android:src="@drawable/block"
-                        android:layout_margin="@dimen/_10sdp"/>
+                        android:layout_margin="@dimen/_10sdp"
+                        android:src="@drawable/block" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
                         android:layout_weight="1"
-                        android:gravity="center_vertical">
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="             "
                             android:textSize="18sp" />
+
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center_vertical"
                             android:orientation="horizontal">
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Verified Block"/>
+                                android:text="Verified Block" />
+
                             <ImageView
                                 android:layout_width="@dimen/_15sdp"
                                 android:layout_height="@dimen/_15sdp"
                                 android:layout_marginStart="@dimen/_8sdp"
-                                android:src="@drawable/verified"/>
+                                android:src="@drawable/verified" />
                         </LinearLayout>
 
                     </LinearLayout>
+
                     <ImageView
                         android:layout_width="@dimen/_20sdp"
                         android:layout_height="@dimen/_20sdp"
                         android:layout_marginEnd="@dimen/_10sdp"
-                        android:src="@drawable/download"/>
+                        android:src="@drawable/download" />
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                app:cardCornerRadius="@dimen/_10sdp"
-                app:cardElevation="@dimen/_10sdp"
+                android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_4sdp"
-                android:layout_height="wrap_content">
+                app:cardCornerRadius="@dimen/_10sdp"
+                app:cardElevation="@dimen/_10sdp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    >
+                    android:orientation="horizontal">
+
                     <ImageView
                         android:layout_width="@dimen/_30sdp"
                         android:layout_height="@dimen/_30sdp"
-                        android:src="@drawable/block"
-                        android:layout_margin="@dimen/_10sdp"/>
+                        android:layout_margin="@dimen/_10sdp"
+                        android:src="@drawable/block" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
                         android:layout_weight="1"
-                        android:gravity="center_vertical">
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="             "
                             android:textSize="18sp" />
+
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center_vertical"
                             android:orientation="horizontal">
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Verified Block"/>
+                                android:text="Verified Block" />
+
                             <ImageView
                                 android:layout_width="@dimen/_15sdp"
                                 android:layout_height="@dimen/_15sdp"
                                 android:layout_marginStart="@dimen/_8sdp"
-                                android:src="@drawable/verified"/>
+                                android:src="@drawable/verified" />
                         </LinearLayout>
 
                     </LinearLayout>
+
                     <ImageView
                         android:layout_width="@dimen/_20sdp"
                         android:layout_height="@dimen/_20sdp"
                         android:layout_marginEnd="@dimen/_10sdp"
-                        android:src="@drawable/download"/>
+                        android:src="@drawable/download" />
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                app:cardCornerRadius="@dimen/_10sdp"
-                app:cardElevation="@dimen/_10sdp"
+                android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_4sdp"
-                android:layout_height="wrap_content">
+                app:cardCornerRadius="@dimen/_10sdp"
+                app:cardElevation="@dimen/_10sdp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    >
+                    android:orientation="horizontal">
+
                     <ImageView
                         android:layout_width="@dimen/_30sdp"
                         android:layout_height="@dimen/_30sdp"
-                        android:src="@drawable/block"
-                        android:layout_margin="@dimen/_10sdp"/>
+                        android:layout_margin="@dimen/_10sdp"
+                        android:src="@drawable/block" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
                         android:layout_weight="1"
-                        android:gravity="center_vertical">
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="             "
                             android:textSize="18sp" />
+
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center_vertical"
                             android:orientation="horizontal">
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Verified Block"/>
+                                android:text="Verified Block" />
+
                             <ImageView
                                 android:layout_width="@dimen/_15sdp"
                                 android:layout_height="@dimen/_15sdp"
                                 android:layout_marginStart="@dimen/_8sdp"
-                                android:src="@drawable/verified"/>
+                                android:src="@drawable/verified" />
                         </LinearLayout>
 
                     </LinearLayout>
+
                     <ImageView
                         android:layout_width="@dimen/_20sdp"
                         android:layout_height="@dimen/_20sdp"
                         android:layout_marginEnd="@dimen/_10sdp"
-                        android:src="@drawable/download"/>
+                        android:src="@drawable/download" />
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                app:cardCornerRadius="@dimen/_10sdp"
-                app:cardElevation="@dimen/_10sdp"
+                android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_4sdp"
-                android:layout_height="wrap_content">
+                app:cardCornerRadius="@dimen/_10sdp"
+                app:cardElevation="@dimen/_10sdp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    >
+                    android:orientation="horizontal">
+
                     <ImageView
                         android:layout_width="@dimen/_30sdp"
                         android:layout_height="@dimen/_30sdp"
-                        android:src="@drawable/block"
-                        android:layout_margin="@dimen/_10sdp"/>
+                        android:layout_margin="@dimen/_10sdp"
+                        android:src="@drawable/block" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
                         android:layout_weight="1"
-                        android:gravity="center_vertical">
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="             "
                             android:textSize="18sp" />
+
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center_vertical"
                             android:orientation="horizontal">
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Verified Block"/>
+                                android:text="Verified Block" />
+
                             <ImageView
                                 android:layout_width="@dimen/_15sdp"
                                 android:layout_height="@dimen/_15sdp"
                                 android:layout_marginStart="@dimen/_8sdp"
-                                android:src="@drawable/verified"/>
+                                android:src="@drawable/verified" />
                         </LinearLayout>
 
                     </LinearLayout>
+
                     <ImageView
                         android:layout_width="@dimen/_20sdp"
                         android:layout_height="@dimen/_20sdp"
                         android:layout_marginEnd="@dimen/_10sdp"
-                        android:src="@drawable/download"/>
+                        android:src="@drawable/download" />
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                app:cardCornerRadius="@dimen/_10sdp"
-                app:cardElevation="@dimen/_10sdp"
+                android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_4sdp"
-                android:layout_height="wrap_content">
+                app:cardCornerRadius="@dimen/_10sdp"
+                app:cardElevation="@dimen/_10sdp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    >
+                    android:orientation="horizontal">
+
                     <ImageView
                         android:layout_width="@dimen/_30sdp"
                         android:layout_height="@dimen/_30sdp"
-                        android:src="@drawable/block"
-                        android:layout_margin="@dimen/_10sdp"/>
+                        android:layout_margin="@dimen/_10sdp"
+                        android:src="@drawable/block" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
                         android:layout_weight="1"
-                        android:gravity="center_vertical">
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="             "
                             android:textSize="18sp" />
+
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center_vertical"
                             android:orientation="horizontal">
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Verified Block"/>
+                                android:text="Verified Block" />
+
                             <ImageView
                                 android:layout_width="@dimen/_15sdp"
                                 android:layout_height="@dimen/_15sdp"
                                 android:layout_marginStart="@dimen/_8sdp"
-                                android:src="@drawable/verified"/>
+                                android:src="@drawable/verified" />
                         </LinearLayout>
 
                     </LinearLayout>
+
                     <ImageView
                         android:layout_width="@dimen/_20sdp"
                         android:layout_height="@dimen/_20sdp"
                         android:layout_marginEnd="@dimen/_10sdp"
-                        android:src="@drawable/download"/>
+                        android:src="@drawable/download" />
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                app:cardCornerRadius="@dimen/_10sdp"
-                app:cardElevation="@dimen/_10sdp"
+                android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_4sdp"
-                android:layout_height="wrap_content">
+                app:cardCornerRadius="@dimen/_10sdp"
+                app:cardElevation="@dimen/_10sdp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    >
+                    android:orientation="horizontal">
+
                     <ImageView
                         android:layout_width="@dimen/_30sdp"
                         android:layout_height="@dimen/_30sdp"
-                        android:src="@drawable/block"
-                        android:layout_margin="@dimen/_10sdp"/>
+                        android:layout_margin="@dimen/_10sdp"
+                        android:src="@drawable/block" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
                         android:layout_weight="1"
-                        android:gravity="center_vertical">
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="             "
                             android:textSize="18sp" />
+
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center_vertical"
                             android:orientation="horizontal">
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Verified Block"/>
+                                android:text="Verified Block" />
+
                             <ImageView
                                 android:layout_width="@dimen/_15sdp"
                                 android:layout_height="@dimen/_15sdp"
                                 android:layout_marginStart="@dimen/_8sdp"
-                                android:src="@drawable/verified"/>
+                                android:src="@drawable/verified" />
                         </LinearLayout>
 
                     </LinearLayout>
+
                     <ImageView
                         android:layout_width="@dimen/_20sdp"
                         android:layout_height="@dimen/_20sdp"
                         android:layout_marginEnd="@dimen/_10sdp"
-                        android:src="@drawable/download"/>
+                        android:src="@drawable/download" />
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                app:cardCornerRadius="@dimen/_10sdp"
-                app:cardElevation="@dimen/_10sdp"
+                android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_4sdp"
-                android:layout_height="wrap_content">
+                app:cardCornerRadius="@dimen/_10sdp"
+                app:cardElevation="@dimen/_10sdp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    >
+                    android:orientation="horizontal">
+
                     <ImageView
                         android:layout_width="@dimen/_30sdp"
                         android:layout_height="@dimen/_30sdp"
-                        android:src="@drawable/block"
-                        android:layout_margin="@dimen/_10sdp"/>
+                        android:layout_margin="@dimen/_10sdp"
+                        android:src="@drawable/block" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
                         android:layout_weight="1"
-                        android:gravity="center_vertical">
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="             "
                             android:textSize="18sp" />
+
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center_vertical"
                             android:orientation="horizontal">
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Verified Block"/>
+                                android:text="Verified Block" />
+
                             <ImageView
                                 android:layout_width="@dimen/_15sdp"
                                 android:layout_height="@dimen/_15sdp"
                                 android:layout_marginStart="@dimen/_8sdp"
-                                android:src="@drawable/verified"/>
+                                android:src="@drawable/verified" />
                         </LinearLayout>
 
                     </LinearLayout>
+
                     <ImageView
                         android:layout_width="@dimen/_20sdp"
                         android:layout_height="@dimen/_20sdp"
                         android:layout_marginEnd="@dimen/_10sdp"
-                        android:src="@drawable/download"/>
+                        android:src="@drawable/download" />
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                app:cardCornerRadius="@dimen/_10sdp"
-                app:cardElevation="@dimen/_10sdp"
+                android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_4sdp"
-                android:layout_height="wrap_content">
+                app:cardCornerRadius="@dimen/_10sdp"
+                app:cardElevation="@dimen/_10sdp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    >
+                    android:orientation="horizontal">
+
                     <ImageView
                         android:layout_width="@dimen/_30sdp"
                         android:layout_height="@dimen/_30sdp"
-                        android:src="@drawable/block"
-                        android:layout_margin="@dimen/_10sdp"/>
+                        android:layout_margin="@dimen/_10sdp"
+                        android:src="@drawable/block" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
                         android:layout_weight="1"
-                        android:gravity="center_vertical">
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="             "
                             android:textSize="18sp" />
+
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center_vertical"
                             android:orientation="horizontal">
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Verified Block"/>
+                                android:text="Verified Block" />
+
                             <ImageView
                                 android:layout_width="@dimen/_15sdp"
                                 android:layout_height="@dimen/_15sdp"
                                 android:layout_marginStart="@dimen/_8sdp"
-                                android:src="@drawable/verified"/>
+                                android:src="@drawable/verified" />
                         </LinearLayout>
 
                     </LinearLayout>
+
                     <ImageView
                         android:layout_width="@dimen/_20sdp"
                         android:layout_height="@dimen/_20sdp"
                         android:layout_marginEnd="@dimen/_10sdp"
-                        android:src="@drawable/download"/>
+                        android:src="@drawable/download" />
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                app:cardCornerRadius="@dimen/_10sdp"
-                app:cardElevation="@dimen/_10sdp"
+                android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_4sdp"
-                android:layout_height="wrap_content">
+                app:cardCornerRadius="@dimen/_10sdp"
+                app:cardElevation="@dimen/_10sdp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    >
+                    android:orientation="horizontal">
+
                     <ImageView
                         android:layout_width="@dimen/_30sdp"
                         android:layout_height="@dimen/_30sdp"
-                        android:src="@drawable/block"
-                        android:layout_margin="@dimen/_10sdp"/>
+                        android:layout_margin="@dimen/_10sdp"
+                        android:src="@drawable/block" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
                         android:layout_weight="1"
-                        android:gravity="center_vertical">
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="             "
                             android:textSize="18sp" />
+
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center_vertical"
                             android:orientation="horizontal">
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Verified Block"/>
+                                android:text="Verified Block" />
+
                             <ImageView
                                 android:layout_width="@dimen/_15sdp"
                                 android:layout_height="@dimen/_15sdp"
                                 android:layout_marginStart="@dimen/_8sdp"
-                                android:src="@drawable/verified"/>
+                                android:src="@drawable/verified" />
                         </LinearLayout>
 
                     </LinearLayout>
+
                     <ImageView
                         android:layout_width="@dimen/_20sdp"
                         android:layout_height="@dimen/_20sdp"
                         android:layout_marginEnd="@dimen/_10sdp"
-                        android:src="@drawable/download"/>
+                        android:src="@drawable/download" />
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                app:cardCornerRadius="@dimen/_10sdp"
-                app:cardElevation="@dimen/_10sdp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_4sdp"
                 android:layout_marginTop="@dimen/_4sdp"
                 android:layout_marginEnd="@dimen/_4sdp"
-                android:layout_marginStart="@dimen/_4sdp"
-                android:layout_height="wrap_content">
+                app:cardCornerRadius="@dimen/_10sdp"
+                app:cardElevation="@dimen/_10sdp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    >
+                    android:orientation="horizontal">
+
                     <ImageView
                         android:layout_width="@dimen/_30sdp"
                         android:layout_height="@dimen/_30sdp"
-                        android:src="@drawable/block"
-                        android:layout_margin="@dimen/_10sdp"/>
+                        android:layout_margin="@dimen/_10sdp"
+                        android:src="@drawable/block" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
                         android:layout_weight="1"
-                        android:gravity="center_vertical">
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="             "
                             android:textSize="18sp" />
+
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center_vertical"
                             android:orientation="horizontal">
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Verified Block"/>
+                                android:text="Verified Block" />
+
                             <ImageView
                                 android:layout_width="@dimen/_15sdp"
                                 android:layout_height="@dimen/_15sdp"
                                 android:layout_marginStart="@dimen/_8sdp"
-                                android:src="@drawable/verified"/>
+                                android:src="@drawable/verified" />
                         </LinearLayout>
 
                     </LinearLayout>
+
                     <ImageView
                         android:layout_width="@dimen/_20sdp"
                         android:layout_height="@dimen/_20sdp"
                         android:layout_marginEnd="@dimen/_10sdp"
-                        android:src="@drawable/download"/>
+                        android:src="@drawable/download" />
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
@@ -594,21 +703,22 @@
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipeView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/_10sdp"
         android:visibility="gone"
-        app:swipeRefreshLayoutProgressSpinnerBackgroundColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:swipeRefreshLayoutProgressSpinnerBackgroundColor="@color/black">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/blockRecycler"
-            android:paddingTop="@dimen/_4sdp"
             android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:minHeight="@dimen/_600sdp"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            android:layout_height="match_parent" />
+            android:paddingTop="@dimen/_4sdp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

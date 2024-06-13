@@ -13,6 +13,7 @@
         android:layout_height="@dimen/_50sdp"
         android:background="@color/colorControlHighlight"
         android:title="Local Libraries"
+        app:menu="@menu/searchable_menu"
         android:titleTextColor="#fff"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

@@ -52,8 +52,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.main)
         binding.title.text = home
-        replaceFragment(HomeFragment())
 
+        replaceFragment(HomeFragment())
         try {
             val packageInfo = packageManager.getPackageInfo(packageName, 0)
             versionName = packageInfo.versionName
@@ -153,25 +153,24 @@ class MainActivity : AppCompatActivity() {
 
     @SuppressLint("ClickableViewAccessibility")
     private fun clickListeners() {
+
         binding.bottomNav.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.home -> {
                     replaceFragment(HomeFragment())
                     binding.title.text = home
-                    binding.search.visibility = View.VISIBLE
                     state = home
                     hideKeyboard()
-                    binding.search.visibility = View.VISIBLE
                     binding.searchCard.visibility = View.GONE
                     true
                 }
                 R.id.blocks -> {
                     replaceFragment(BlocksFragment())
                     binding.title.text = blocks
-                    binding.search.visibility = View.VISIBLE
+
                     state = blocks
                     hideKeyboard()
-                    binding.search.visibility = View.VISIBLE
+
                     binding.searchCard.visibility = View.GONE
                     true
                 }
@@ -180,40 +179,16 @@ class MainActivity : AppCompatActivity() {
                     binding.title.text = more
                     state = more
                     hideKeyboard()
-                    binding.search.visibility = View.GONE
+
                     binding.searchCard.visibility = View.GONE
                     true
                 }
             }
         }
-        binding.search.setOnClickListener {
-            binding.search.visibility = View.GONE
-            binding.searchCard.visibility = View.VISIBLE
-        }
-        binding.cut.setOnClickListener {
-            hideKeyboard()
-            binding.search.visibility = View.VISIBLE
-            binding.searchCard.visibility = View.GONE
-            binding.bottomNav.visibility = View.VISIBLE
-        }
 
-        binding.edtSearch.setOnEditorActionListener { _, actionId, _ ->
-            if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-                val searchText = binding.edtSearch.text.toString()
-                binding.edtSearch.setText("")
-                search()
-                hideKeyboard()
-                binding.bottomNav.visibility = View.VISIBLE
-                true
-            } else {
-                false
-            }
-        }
 
-    }
 
-    private fun search() {
-        // Implement search functionality here
+
     }
 
     private fun hideKeyboard() {
@@ -230,6 +205,10 @@ class MainActivity : AppCompatActivity() {
                 .replace(R.id.frameLayout, fragment)
                 .commit()
         }
+    }
+
+    private fun getCurrentSelectedItemId(): Int {
+        return binding.bottomNav.selectedItemId
     }
 
     private fun onKeyboardVisibilityChanged(visible: Boolean) {
