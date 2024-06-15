@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://github.com/Binondi/Sketch-Materials/assets/141143315/8a219dd1-1331-4734-98ea-3c9cd7c6bf18" alt="logo" width="200"/>
+  <img src="https://github.com/Binondi/Sketch-Materials/assets/141143315/3bf21293-f6b4-43a6-98a6-6d4e4f1876b8" alt="logo" width="200"/>
 </div>
 
 
