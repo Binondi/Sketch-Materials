@@ -29,17 +29,17 @@ class CodeViewerActivity : AppCompatActivity() {
         titleText = intent.getStringExtra("title").toString()
         codeText = intent.getStringExtra("code").toString().replace("ENTER","\n")
         dateText = intent.getStringExtra("date").toString()
-        descriptionText = intent.getStringExtra("description").toString()
+        descriptionText = intent.getStringExtra("description").toString().replace("ENTER","\n")
         binding.apply {
             toolbar.title = titleText
             code.text = codeText
             date.text = "Date Added: $dateText"
             codeDescription.text = descriptionText
             copy.setOnClickListener {
-                copyCode(codeText)
+                copyCode(code.text.toString())
             }
             share.setOnClickListener {
-                shareCode(codeText)
+                shareCode(code.text.toString())
             }
 
             toolbar.setOnMenuItemClickListener(Toolbar.OnMenuItemClickListener {
@@ -90,14 +90,10 @@ class CodeViewerActivity : AppCompatActivity() {
     }
 
     private fun copyCode(text: String) {
-
-        val clipboard = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
-
-        val clip = ClipData.newPlainText("label", text)
-        clipboard.setPrimaryClip(clip)
-        Toast.makeText(this, "Text copied to clipboard", Toast.LENGTH_SHORT).show()
-
+        (getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager).setPrimaryClip(ClipData.newPlainText("clipboard", text))
+        Toast.makeText(applicationContext, "Code Copied", Toast.LENGTH_SHORT).show()
     }
+
 
 
 }

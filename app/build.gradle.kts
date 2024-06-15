@@ -44,20 +44,22 @@ dependencies {
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.activity)
-
     implementation(libs.androidx.constraintlayout)
     implementation(libs.firebase.database)
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
-    implementation(libs.firebase.auth.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
-    //custom libraries
-    implementation(libs.sdp.android)
-    implementation(libs.shimmer)
-    implementation(libs.androidx.swiperefreshlayout)
-    implementation(libs.lottie)
-    implementation(libs.androidx.browser)
+    implementation("com.intuit.sdp:sdp-android:1.1.1")
+    //noinspection UseTomlInstead
+    implementation("com.facebook.shimmer:shimmer:0.5.0")
+    //noinspection UseTomlInstead
+    implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.2.0-alpha01")
+    //noinspection UseTomlInstead
+    implementation("com.airbnb.android:lottie:6.2.0")
+    //noinspection UseTomlInstead
+    implementation("androidx.browser:browser:1.8.0")
+    implementation("com.google.firebase:firebase-database:21.0.0")
 }
